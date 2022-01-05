@@ -1,4 +1,4 @@
-cargo-features = ["strip"]
+# cargo-features = ["strip"]
 
 [package]
 name = "wust"
@@ -9,7 +9,7 @@ edition = "2021"
 lto = true
 codegen-units = 1
 opt-level = "z"
-strip = true
+# strip = true
 
 [dependencies]
 log = "0.4.14"
