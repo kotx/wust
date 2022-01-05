@@ -1,0 +1,36 @@
+cargo-features = ["strip"]
+
+[package]
+name = "wust"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+lto = true
+codegen-units = 1
+opt-level = "z"
+strip = true
+
+[dependencies]
+log = "0.4.14"
+kaf = "1.0.2"
+futures = "0.3.19"
+serde = { version = "1.0.133", features = ["derive"] }
+toml = "0.5.8"
+
+# Feature perf-literal is disabled due to conflicts with heim's dep memchr: https://github.com/heim-rs/darwin-libproc/pull/3
+regex = { version = "1.5.4", default-features = false, features = [
+    "std",
+    "perf-cache",
+    "perf-dfa",
+    "perf-inline",
+] }
+
+[dependencies.heim]
+version = "0.1.0-rc.1"
+default-features = false
+features = ["process"]
+
+[dependencies.windows-sys]
+version = "0.29.0"
+features = ["Win32_Foundation", "Win32_UI_WindowsAndMessaging"]

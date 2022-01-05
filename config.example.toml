@@ -1,0 +1,16 @@
+# Rename to config.toml and (optionally) place in ~/.config/wust/config.toml
+
+interval = 1000 # time between foreground checks in ms
+
+# TODO: Support either a [desktop] task or command on unfocus
+# TODO: Support platform-specific tasks or commands
+# TODO: Support launching tasks from shells (default_shell, [[tasks]] shell)
+# TODO: Support rate limits or execution count limits?
+
+[[tasks]]
+pattern = 'steamapps\common\Elite Dangerous\Products\elite-dangerous-64\EliteDangerous64.exe$'
+command = 'rivalcfg -b buttons(button4=button4; button5=button5; button6=button6; button7=button7)'
+
+[[tasks]]
+pattern = '[Cc]ode(\.exe)?$'
+command = 'notepad'
